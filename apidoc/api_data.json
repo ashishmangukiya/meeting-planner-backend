@@ -1,0 +1,981 @@
+[
+  {
+    "group": "admin",
+    "version": "0.0.1",
+    "type": "post",
+    "url": "/api/v1/admin/account/verify",
+    "title": "to verify admin's account",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "adminId",
+            "description": "<p>adminId of the admin.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "secretId",
+            "description": "<p>secretId of the admin.(body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "apiResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "success-response:",
+          "content": "\n{\n    \"error\": false,\n    \"message\": \"account verified\",\n    \"status\": 200,\n    \"data\": {\n        \"n\": 1,\n        \"nModified\": 1,\n        \"ok\": 1\n    }\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "error-response:",
+          "content": "{\n    \"error\": true,\n    \"message\": \"detail not found\",\n    \"status\": 500,\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/adminRoutes.js",
+    "groupTitle": "admin",
+    "name": "PostApiV1AdminAccountVerify"
+  },
+  {
+    "group": "admin",
+    "version": "0.0.1",
+    "type": "post",
+    "url": "/api/v1/admin/get/all/events",
+    "title": "to get all meeting schedules which are created by admin for perticular user",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "adminId",
+            "description": "<p>adminId of the admin.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>userId of the user.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>authToken of the admin.(body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "apiResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "success-response:",
+          "content": "{\n    \"error\": false,\n    \"message\": \"event list found\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"color\": {\n                \"primary\": \"#ad2121\",\n                \"secondary\": \"#FAE3E3\"\n            },\n            \"resizable\": {\n                \"beforeStart\": true,\n                \"afterEnd\": true\n            },\n            \"messageId\": \"TcG_0scnX\",\n            \"title\": \"New event\",\n            \"userId\": \"Ww_nL_ZGq\",\n            \"userName\": \"ashish\",\n            \"alert\": true,\n            \"description\": \"\",\n            \"userEmailId\": \"ashishmangukiyapm@gmail.com\",\n            \"adminId\": \"l1QP8Gn41\",\n            \"adminName\": \"ashish-admin\",\n            \"start\": \"2018-09-22T15:33:00.000Z\",\n            \"end\": \"2018-09-22T18:29:59.999Z\",\n            \"draggable\": true,\n            \"_id\": \"5ba644faef95f51643e4a0cc\",\n            \"__v\": 0\n        }\n    ]\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "error-response:",
+          "content": "{\n    \"error\": \"true\",\n    \"message\": \"not yet created any schedule\",\n    \"status\": 404,\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/adminRoutes.js",
+    "groupTitle": "admin",
+    "name": "PostApiV1AdminGetAllEvents"
+  },
+  {
+    "group": "admin",
+    "version": "0.0.1",
+    "type": "post",
+    "url": "/api/v1/admin/get/all/users",
+    "title": "to get all the users list",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "adminId",
+            "description": "<p>adminId of the admin.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>authToken of the admin.(body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "apiResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "success-response:",
+          "content": "{\n    \"error\": \"false\",\n    \"message\": \"user list found\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"userId\": \"Ww_nL_ZGq\",\n            \"firstName\": \"ashish\",\n            \"lastName\": \"patel\",\n            \"activated\": true,\n            \"country\": \"IN\",\n            \"email\": \"ashishmangukiyapm@gmail.com\",\n            \"mobileNumber\": \"918446680648\",\n            \"recoveryPassword\": \"-eRdWE4pk\",\n            \"_id\": \"5ba32ee9c6b96616b511c9da\",\n            \"__v\": 0\n        }\n    ]\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "error-response:",
+          "content": "{\n    \"error\": \"true\",\n    \"message\": \"admin detail not found\",\n    \"status\": 404,\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/adminRoutes.js",
+    "groupTitle": "admin",
+    "name": "PostApiV1AdminGetAllUsers"
+  },
+  {
+    "group": "admin",
+    "version": "0.0.1",
+    "type": "post",
+    "url": "/api/v1/admin/login",
+    "title": "to login admin",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>email id of the admin.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "password",
+            "description": "<p>password of the admin.(body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "apiResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "success-response:",
+          "content": "{\n    \"error\": false,\n    \"message\": \"Login Successful\",\n    \"status\": 200,\n    \"data\": {\n        \"authToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RpZCI6IkhHM2puRklXQSIsImlhdCI6MTUzNzY4OTEwMDIyMiwiZXhwIjoxNTM3Nzc1NTAwLCJzdWIiOiJhdXRoVG9rZW4iLCJpc3MiOiJtZWV0aW5nUGxhbm5lciIsImRhdGEiOnsiYWRtaW5JZCI6ImwxUVA4R240MSIsInVzZXJOYW1lIjoiYXNoaXNoLWFkbWluIiwiZmlyc3ROYW1lIjoiYXNoaXNoIiwibGFzdE5hbWUiOiJtYW5ndWtpeWEiLCJhY3RpdmF0ZWQiOnRydWUsImNvdW50cnkiOiJJTiIsImFjY291bnRWZXJpZmljYXRpb24iOiJodHRwOi8vbG9jYWxob3N0OjQyMDAvZW1haWwtdmVyaWZ5L2FkbWluL2wxUVA4R240MS9ibUwyMDRGNldOIiwibW9iaWxlTnVtYmVyIjoiOTE4NDQ2NjgwNjQ4IiwiZW1haWwiOiJhc2hpc2htYW5ndWtpeWE5N0BnbWFpbC5jb20iLCJyZWNvdmVyeVBhc3N3b3JkIjoiZG1odGRWWG5BIn19.LphrbyAQemnYgPLFG9JeVgSND5Kj69tCoiuj1PAV2ks\",\n        \"adminDetails\": {\n            \"adminId\": \"l1QP8Gn41\",\n            \"userName\": \"ashish-admin\",\n            \"firstName\": \"ashish\",\n            \"lastName\": \"mangukiya\",\n            \"activated\": true,\n            \"country\": \"IN\",\n            \"mobileNumber\": \"918446680648\",\n            \"email\": \"ashishmangukiya97@gmail.com\",\n            \"recoveryPassword\": \"dmhtdVXnA\"\n        }\n    }\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "error-response:",
+          "content": "{\n    \"error\": true,\n    \"message\": \"admin detail not found\",\n    \"status\": 404,\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/adminRoutes.js",
+    "groupTitle": "admin",
+    "name": "PostApiV1AdminLogin"
+  },
+  {
+    "group": "admin",
+    "version": "0.0.1",
+    "type": "post",
+    "url": "/api/v1/admin/logout",
+    "title": "to logout admin",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>authToken of the admin.(body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "apiResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "success-response:",
+          "content": "{\n    \"error\": false,\n    \"message\": \"Logged Out Successfully\",\n    \"status\": 200,\n    \"data\": null\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "error-response:",
+          "content": "{\n    \"error\": true,\n    \"message\": \"Already Logged Out or Invalid admin\",\n    \"status\": 404,\n    \"data\": null\n}",
+          "type": "josn"
+        }
+      ]
+    },
+    "filename": "routes/adminRoutes.js",
+    "groupTitle": "admin",
+    "name": "PostApiV1AdminLogout"
+  },
+  {
+    "group": "admin",
+    "version": "0.0.1",
+    "type": "post",
+    "url": "/api/v1/admin/resetPassword",
+    "title": "to reset admin's password",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>email id of the admin.(body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "apiResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "success-response:",
+          "content": "{\n    \"error\": false,\n    \"message\": \"Password reset Successfully\",\n    \"status\": 200,\n    \"data\": {\n        \"error\": false,\n        \"message\": \"Password reset successfully\",\n        \"status\": 200,\n        \"data\": {\n            \"n\": 1,\n            \"nModified\": 1,\n            \"ok\": 1\n        }\n    }\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "error-response:",
+          "content": "{\n    \"error\": true,\n    \"message\": \"no admin details found\",\n    \"status\": 404,\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/adminRoutes.js",
+    "groupTitle": "admin",
+    "name": "PostApiV1AdminResetpassword"
+  },
+  {
+    "group": "admin",
+    "version": "0.0.1",
+    "type": "post",
+    "url": "/api/v1/admin/signup",
+    "title": "to create new admin",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "firstName",
+            "description": "<p>first name of the admin.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "lastName",
+            "description": "<p>last name of the admin.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>email id of the admin.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "mobileNumber",
+            "description": "<p>mobileNumber of the admin.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "strign",
+            "optional": false,
+            "field": "country",
+            "description": "<p>admin's country name.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "password",
+            "description": "<p>password of the admin.(body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "apiResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "success-response:",
+          "content": "{\n    \"error\": false,\n    \"message\": \"admin created\",\n    \"status\": 200,\n    \"data\": {\n        \"adminId\": \"kauJhCLvW\",\n        \"firstName\": \"sherul\",\n        \"userName\": \"sherul-admin\",\n        \"lastName\": \"patel\",\n        \"activated\": false,\n        \"country\": \"IN\",\n        \"email\": \"sherulpatel97@gmail.com\",\n        \"mobileNumber\": \"8087977048\",\n        \"recoveryPassword\": \"\",\n        \"_id\": \"5ba7340ad080cb0ac34a117e\",\n        \"__v\": 0\n    }\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "error-response:",
+          "content": "{\n    \"error\": true,\n    \"message\": \"Admin Already Present With this Email\",\n    \"status\": 403,\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/adminRoutes.js",
+    "groupTitle": "admin",
+    "name": "PostApiV1AdminSignup"
+  },
+  {
+    "group": "admin",
+    "version": "0.0.1",
+    "type": "post",
+    "url": "/api/v1/admin/signup",
+    "title": "to get user detail",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>userId of the user.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>authToken of the admin.(body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "apiResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "success-response:",
+          "content": "{\n    \"error\": false,\n    \"message\": \"user detail found\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"userId\": \"Ww_nL_ZGq\",\n            \"firstName\": \"ashish\",\n            \"lastName\": \"patel\",\n            \"activated\": true,\n            \"country\": \"IN\",\n            \"email\": \"ashishmangukiyapm@gmail.com\",\n            \"mobileNumber\": \"918446680648\",\n            \"recoveryPassword\": \"-eRdWE4pk\",\n            \"_id\": \"5ba32ee9c6b96616b511c9da\",\n            \"__v\": 0\n        }\n    ]\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "error-response:",
+          "content": "{\n    \"error\": \"true\",\n    \"message\": \"user detail not found\",\n    \"status\": 404,\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/adminRoutes.js",
+    "groupTitle": "admin",
+    "name": "PostApiV1AdminSignup"
+  },
+  {
+    "group": "admin",
+    "version": "0.0.1",
+    "type": "post",
+    "url": "/api/v1/admin/updatePassword",
+    "title": "to update admin's password",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "strign",
+            "optional": false,
+            "field": "recoveryPassword",
+            "description": "<p>recoveryPassword of the admin.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "password",
+            "description": "<p>new password of the admin.(body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "apiResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "success-response:",
+          "content": "{\n    \"error\": false,\n    \"message\": \"Password Update Successfully\",\n    \"status\": 200,\n    \"data\": {\n        \"error\": false,\n        \"message\": \"Password Updated successfully\",\n        \"status\": 200,\n        \"data\": {\n            \"n\": 1,\n            \"nModified\": 1,\n            \"ok\": 1\n        }\n    }\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "error-response:",
+          "content": "{\n    \"error\": true,\n    \"message\": \"No admin Details Found\",\n    \"status\": 404,\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/adminRoutes.js",
+    "groupTitle": "admin",
+    "name": "PostApiV1AdminUpdatepassword"
+  },
+  {
+    "group": "user",
+    "version": "0.0.1",
+    "type": "post",
+    "url": "/api/v1/user/account/verify",
+    "title": "to verify user's account",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>userId of the user.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "secretId",
+            "description": "<p>secretId of the user.(body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "apiResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "success-response:",
+          "content": "{\n    \"error\": false,\n    \"message\": \"account verified\",\n    \"status\": 200,\n    \"data\": {\n        \"n\": 1,\n        \"nModified\": 1,\n        \"ok\": 1\n    }\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "error-response:",
+          "content": "{\n    \"error\": true,\n    \"message\": \"detail not found\",\n    \"status\": 500,\n    \"data\": null\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "filename": "routes/userRoutes.js",
+    "groupTitle": "user",
+    "name": "PostApiV1UserAccountVerify"
+  },
+  {
+    "group": "user",
+    "version": "0.0.1",
+    "type": "post",
+    "url": "/api/v1/user/get/all/message",
+    "title": "to get all meeting schedules of user",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>userId of the user.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>authToken of the user.(body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "apiResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "success-response:",
+          "content": "{\n    \"error\": false,\n    \"message\": \"message list found\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"color\": {\n                \"primary\": \"#ad2121\",\n                \"secondary\": \"#FAE3E3\"\n            },\n            \"resizable\": {\n                \"beforeStart\": true,\n                \"afterEnd\": true\n            },\n            \"messageId\": \"TcG_0scnX\",\n            \"title\": \"interview at google\",\n            \"userId\": \"Ww_nL_ZGq\",\n            \"userName\": \"ashish\",\n            \"alert\": true,\n            \"description\": \"bring two resume copy\",\n            \"userEmailId\": \"ashishmangukiyapm@gmail.com\",\n            \"adminId\": \"l1QP8Gn41\",\n            \"adminName\": \"ashish-admin\",\n            \"start\": \"2018-09-22T15:33:00.000Z\",\n            \"end\": \"2018-09-22T18:29:59.999Z\",\n            \"draggable\": true,\n            \"_id\": \"5ba644faef95f51643e4a0cc\",\n            \"__v\": 0\n        }   \n    ]\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "error-response:",
+          "content": "{\n    \"error\": true,\n    \"message\": \"you don't have any schedule\",\n    \"status\": 500,\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/userRoutes.js",
+    "groupTitle": "user",
+    "name": "PostApiV1UserGetAllMessage"
+  },
+  {
+    "group": "user",
+    "version": "0.0.1",
+    "type": "post",
+    "url": "/api/v1/user/login",
+    "title": "to login user",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>email id of the user.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "password",
+            "description": "<p>password of the user.(body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "apiResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "success-response:",
+          "content": "{ \n    \"error\": false,\n    \"message\": \"Login Successful\",\n    \"status\": 200,\n    \"data\": {\n        \"authToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RpZCI6IjVDbUt1aTV0RyIsImlhdCI6MTUzNzY4NTI5MjA1MywiZXhwIjoxNTM3NzcxNjkyLCJzdWIiOiJhdXRoVG9rZW4iLCJpc3MiOiJtZWV0aW5nUGxhbm5lciIsImRhdGEiOnsidXNlcklkIjoiV3dfbkxfWkdxIiwiZmlyc3ROYW1lIjoiYXNoaXNoIiwibGFzdE5hbWUiOiJwYXRlbCIsImFjdGl2YXRlZCI6dHJ1ZSwiYWNjb3VudFZlcmlmaWNhdGlvbiI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMC9lbWFpbC12ZXJpZnkvdXNlci9Xd19uTF9aR3EvN212MU8yYWRzTiIsImNvdW50cnkiOiJ1bmRlZmluZWQiLCJlbWFpbCI6ImFzaGlzaG1hbmd1a2l5YXBtQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjkxODQ0NjY4MDY0OCIsInJlY292ZXJ5UGFzc3dvcmQiOiI5QkFFQWxKYy0ifX0.bUlz_UkGJwD1rFCY0ns0WgmM5RSMYJgKooad4U21vlk\",\n        \"userDetails\": {\n            \"userId\": \"Ww_nL_ZGq\",\n            \"firstName\": \"ashish\",\n            \"lastName\": \"patel\",\n            \"activated\": true,\n            \"country\": \"IN\",\n            \"email\": \"ashishmangukiyapm@gmail.com\",\n            \"mobileNumber\": \"918446680648\",\n            \"recoveryPassword\": \"9BAEAlJc-\"\n        }\n    }\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "error-response:",
+          "content": "{\n    \"error\": true,\n    \"message\": \"no user detail found\",\n    \"status\": 404,\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/userRoutes.js",
+    "groupTitle": "user",
+    "name": "PostApiV1UserLogin"
+  },
+  {
+    "group": "user",
+    "version": "0.0.1",
+    "type": "post",
+    "url": "/api/v1/user/logout",
+    "title": "to logout user",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "authToken",
+            "description": "<p>authToken of the user.(body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "apiResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "success-response:",
+          "content": "{\n    \"error\": false,\n    \"message\": \"Logged Out Successfully\",\n    \"status\": 200,\n    \"data\": null\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "error-response:",
+          "content": "{\n    \"error\": true,\n    \"message\": \"Already Logged Out or Invalid User\",\n    \"status\": 404,\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/userRoutes.js",
+    "groupTitle": "user",
+    "name": "PostApiV1UserLogout"
+  },
+  {
+    "group": "user",
+    "version": "0.0.1",
+    "type": "post",
+    "url": "/api/v1/user/resetPassword",
+    "title": "to reset user's password",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>email id of the user.(body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "apiResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "success-response:",
+          "content": "    {\n    \"error\": false,\n    \"message\": \"Password reset Successfully\",\n    \"status\": 200,\n    \"data\": {\n        \"error\": false,\n        \"message\": \"Password reset successfully\",\n        \"status\": 200,\n        \"data\": {\n            \"n\": 1,\n            \"nModified\": 1,\n            \"ok\": 1\n        }\n    }\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "error-response:",
+          "content": "{\n    \"error\": true,\n    \"message\": \"no user found\",\n    \"status\": 404,\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/userRoutes.js",
+    "groupTitle": "user",
+    "name": "PostApiV1UserResetpassword"
+  },
+  {
+    "group": "user",
+    "version": "0.0.1",
+    "type": "post",
+    "url": "/api/v1/user/signup",
+    "title": "to create new user",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "firstName",
+            "description": "<p>first name of the user.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "lastName",
+            "description": "<p>last name of the user.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>email id of the user.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "mobileNumber",
+            "description": "<p>mobileNumber of the user.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "strign",
+            "optional": false,
+            "field": "country",
+            "description": "<p>user's country name.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "password",
+            "description": "<p>password of the user.(body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "apiResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-response:",
+          "content": "{\n    \"error\": false,\n    \"message\": \"User created\",\n    \"status\": 200,\n    \"data\": {\n        \"userId\": \"kauJhCLvW\",\n        \"firstName\": \"sherul\",\n        \"lastName\": \"patel\",\n        \"activated\": false,\n        \"country\": \"IN\",\n        \"email\": \"sherulpatel@gmail.com\",\n        \"mobileNumber\": \"8087977048\",\n        \"recoveryPassword\": \"\",\n        \"_id\": \"5ba7340ad080cb0ac34a117e\",\n        \"__v\": 0\n   }       }",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n \"error\": true,\n \"message\": \"User Already Present With this Email\",\n \"status\": 403,\n \"data\": null\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/userRoutes.js",
+    "groupTitle": "user",
+    "name": "PostApiV1UserSignup"
+  },
+  {
+    "group": "user",
+    "version": "0.0.1",
+    "type": "post",
+    "url": "/api/v1/user/updatePassword",
+    "title": "to update user's password",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "recoveryPassword",
+            "description": "<p>recoveryPassword of the user.(body params)(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "password",
+            "description": "<p>new password of the user.(body params)(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "apiResponse",
+            "description": "<p>shows error status, message, http status code, result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "success-response:",
+          "content": "{\n    \"error\": false,\n    \"message\": \"Password Update Successfully\",\n    \"status\": 200,\n    \"data\": {\n        \"error\": false,\n        \"message\": \"Password Updated successfully\",\n        \"status\": 200,\n        \"data\": {\n            \"n\": 1,\n            \"nModified\": 1,\n            \"ok\": 1\n        }\n    }\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "error-response:",
+          "content": "{\n    \"error\": true,\n    \"message\": \"No User Details Found\",\n    \"status\": 404,\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/userRoutes.js",
+    "groupTitle": "user",
+    "name": "PostApiV1UserUpdatepassword"
+  }
+]

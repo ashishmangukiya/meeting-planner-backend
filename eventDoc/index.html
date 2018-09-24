@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>Events</title>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+    <style>
+    .icon-block {
+        padding: 0 15px;
+    }
+
+    .icon-block .material-icons {
+        font-size: inherit;
+    }
+    </style>
+</head>
+
+<body>
+   
+    <div class="section no-pad-bot" style="margin-bottom: 0px" id="index-banner">
+        <div class="container" style="width: 80%">
+          <p style="font-size: 2em; font-weight: 540; text-align: center">Events documentation</p>
+            <div class="row">
+
+                <div class="col hide-on-small-only m4 l3">
+                    <ul class="section table-of-contents" style="position: fixed">
+                        <li><a href="#listen" style="color: #03a9f4; font-size: 1.2em; font-weight: bold">Listen</a></li>
+                        <li><a href="#verify">verify </a></li>
+                        <li><a href="#usersList">online-user-list</a></li>
+                        <li><a href="#getErrors">get-errors</a></li>
+                        <li><a href="#userId">userId</a></li>
+                        <li><a href="#adminId">adminId</a></li>
+
+                        <li><a href="#emit" style="color: #03a9f4; font-size: 1.2em; font-weight: bold">Emit</a></li>
+                        <li><a href="#set-user">set-user</a></li>
+                        <li><a href="#user-message">user-message</a></li>
+                        <li><a href="#delete-message">delete-message</a></li>
+                        <li><a href="#get-reminder">get-reminder</a></li>
+                        <li><a href="#send-message-offline">send-message-offline</a></li>
+                        <li><a href="#stop-reminder">stop-reminder</a></li>
+                        <li><a href="#disconnect">disconnect</a></li>
+                    </ul>
+                </div>
+
+                <div class="col s12 m8 l9">
+
+                    <div id="listen" class="section scrollspy"></div>
+                    <h4>Events to listen</h4>
+
+                    <div id="verify" class="section scrollspy">
+                        <h5>verify both User and admin event</h5>
+                        This event <span style="font-weight: 600">("verify")</span> has to be listened on both the user's end and admin's end to verify user authentication and admin authentication.<br/>
+                        user and admin both will only be set as online after verification of authentication token.<br/>
+                    </div>
+                    <div id="usersList" class="section scrollspy">
+                        <h5>online-user-list event</h5>
+                        This event <span style="font-weight: 600">("online-user-list")</span> has to be listen on admin's end to get updated online user list  .<br/>
+                        and the online-user-list will be in the form of object(userId:userName);
+                      
+                    </div>
+                    <div id="getErrors" class="section scrollspy">
+                        <h5>get-errors event</h5>
+                        This event <span style="font-weight: 600">("get-errors")</span>has to listen on both the end so if any error occured on socket then error will be notified to user or admin
+                    </div>
+                    <div id="userId" class="section scrollspy">
+                        <h5>userId event</h5>
+                        This event <span style="font-weight: 600">("userId")</span> has to be listened 
+                        on user side . whenever admin is creating any meeting or updating meeting or deleting any meeting schedule at the same time user will get notification for meeting schedule and meeting schedule will be added to calendar page
+                    </div>
+                     <div id="adminId" class="section scrollspy">
+                        <h5>adminId event</h5>
+                        This event <span style="font-weight: 600">("adminId")</span> has to be listened
+                        on admin side. admin will get notification whenever user stops reminder. 
+                       </div>
+
+
+                    <div id="emit" class="section scrollspy"></div>
+                    <h4>Events to emit</h4>
+
+                    <div id="set-user" class="section scrollspy">
+                        <h5>set-user event</h5>
+                        This event <span style="font-weight: 600">("set-user")</span> has to be emitted 
+                        when user or admin get verify . <br>
+                        if user/admin authorized using authToken then user/admin will be added to online-list. 
+                    </div>
+                    <div id="user-message" class="section scrollspy">
+                        <h5>user-message event</h5>
+                        This event <span style="font-weight: 600">("user-message")</span> has to be emitted when meeting schedule is created/updated by admin.
+                        <br>
+                        meeting schedule will be sent to selected user through this event.
+                        <br>
+                    <div id="delete-message" class="section scrollspy">
+                        <h5>delete-message event</h5>
+                        This event <span style="font-weight: 600">("delete-message")</span> has to be emitted when any meeting schedule has been deleted by admin.
+                         <br/>
+                         and on server side meeting schedule will be deleted from database.
+                        <br>
+                    </div>
+                       <div id="get-reminder" class="section scrollspy">
+                        <h5>get-reminder event</h5>
+                        This event <span style="font-weight: 600">("get-reminder")</span> has to be emitted when admin send reminder meeting schedule to user  and on user side user will get notification for reminder.
+                        <br>
+                    </div>
+                      <div id="send-message-offline" class="section scrollspy">
+                        <h5>send-message-offline event</h5>
+                        This event <span style="font-weight: 600">("send-message-offline")</span> has to be emitted when admin send reminder for meeting schedule but user should be offline.
+                        <br>
+                        if user is offline and user has reminder meeting schedule then this event will be emitted.
+                        <br>
+                    </div>
+                      <div id="stop-reminder" class="section scrollspy">
+                        <h5>stop-reminder event</h5>
+                        This event <span style="font-weight: 600">("stop-reminder")</span> has to be emitted when user stops reminder notification.
+                        <br>
+                        once user stops reminder notification user will not get notification for stopped reminder meeting schedule.
+                    </div>
+					<div id="disconnect" class="section scrollspy">
+                        <h5>disconnection</h5>
+                        This event <span style="font-weight: 600">("disconnection")</span> has to be emitted, when the user gets disconnected.<br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br/><br/><br/><br/>
+           <script src="code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.scrollspy').scrollSpy();
+    });
+    </script>
+    <script>
+    (function($) {
+        $(function() {
+
+            $('.button-collapse').sideNav();
+
+        }); // end of document ready
+    })(jQuery); // end of jQuery name space
+    </script>
+</body>
+
+
+
+</html>
